@@ -12,11 +12,20 @@ public class UTM {
         description=null;
     }
     //Run a binary turing machine
-    public run(BTM turing){
+    public void run(BTM turing){
 
     }
+    //print tapes
     public void print(){
 
     }
+    /** 
+     * find specefic rules
+     */
+    public int findRule(String s){
+
+    }
+    
+
     
 }

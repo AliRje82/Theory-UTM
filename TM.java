@@ -15,6 +15,9 @@ public class TM {
     public BTM TMtoBTM(){
         
     }
+    /**
+     * print tapes
+     */
     public void print(){
         
     }

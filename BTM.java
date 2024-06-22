@@ -11,8 +11,19 @@ public class BTM {
         this.rules=rules;
         this.alphabet=alphabet;
     }
+    /**
+     * Convert String tape to 0 and 1's
+     */
     public String[] convert(String[] tape){
 
+    }
+
+    //getters
+    public String[] getRules() {
+        return rules;
+    }
+    public HashMap<String, String> getAlphabet() {
+        return alphabet;
     }
     
 }
