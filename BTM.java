@@ -1,13 +1,14 @@
-import java.util.HashMap;
+
+import java.util.Hashtable;
 /**
  * Binary Turing machine
  */
 
 public class BTM {
     private final String[] rules;
-    private final HashMap<String,String> alphabet;
+    private final Hashtable<String,String> alphabet;
 
-    public BTM(HashMap<String,String> alphabet,String[] rules){
+    public BTM(Hashtable<String,String> alphabet,String[] rules){
         this.rules=rules;
         this.alphabet=alphabet;
     }
@@ -22,7 +23,7 @@ public class BTM {
     public String[] getRules() {
         return rules;
     }
-    public HashMap<String, String> getAlphabet() {
+    public Hashtable<String, String> getAlphabet() {
         return alphabet;
     }
     
