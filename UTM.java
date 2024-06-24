@@ -2,7 +2,7 @@
  * Universal Turing machine
  */
 public class UTM {
-    private String[] input;
+    private InputTape input;
     private String[] state;
     private String[] description;
 

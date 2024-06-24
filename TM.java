@@ -2,12 +2,14 @@
  * Turing machine 
  */
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TM {
     private String[] states;
+    private ArrayList<String> alphabet;
     private String start;
     private String end;
     private String[] rules;
@@ -17,6 +19,15 @@ public class TM {
         Pattern statePatern=Pattern.compile("q[9-0]+");
         Matcher matcherStates;
         long count;
+        //finding alphabets
+        statePatern = Pattern.compile("[(][^)]*[)]");
+        matcherStates = statePatern.matcher(tm[3]);
+        this.alphabet=new ArrayList<>();
+        while (matcherStates.find()) {
+            String[] str = matcherStates.group().replaceAll("[(.)]","").split(",");
+            if(!alphabet.contains(str[1])) alphabet.add(str[1]);
+            if(!alphabet.contains(str[2])) alphabet.add(str[2]);
+        }
         //start state
         matcherStates = statePatern.matcher(tm[1]);
         count = matcherStates.results().count();
@@ -48,8 +59,6 @@ public class TM {
             matcherStates.find();
             this.end=matcherStates.group();
         }
-
-
 
         //Count them for init string[] states
         matcherStates=statePatern.matcher(tm[0]);
