@@ -2,6 +2,7 @@
  * Turing machine 
  */
 
+import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -96,6 +97,68 @@ public class TM {
 
     //Turing machine to binary string
     public BTM TMtoBTM(){
+        Hashtable<String,String> states= new Hashtable<>();
+        Hashtable<String,String> alphabet = new Hashtable<>();
+        
+        states.put(start, "1");
+        states.put(end,"11");
+
+        alphabet.put("blank","1");
+
+        StringBuilder state =new StringBuilder("111");
+        StringBuilder alpha=new StringBuilder("11");
+        
+        String[] btmRules = new String[this.rules.length];
+        int i=0;
+
+        for (String str : this.rules) {
+            String[] r = str.split(" ");
+            StringBuilder btm=new StringBuilder("");
+            
+            if(states.contains(r[0])){
+                btm.append(states.get(r[0]));
+            }else{
+                btm.append(state);
+                states.put(r[0], state.toString());
+                state.append("1");
+            }
+            btm.append("0");
+            if(alphabet.contains(r[1])){
+                btm.append(states.get(r[1]));
+            }else{
+                btm.append(alpha);
+                alphabet.put(r[1], alpha.toString());
+                alpha.append("1");
+            }
+            btm.append("0");
+            if(alphabet.contains(r[2])){
+                btm.append(states.get(r[2]));
+            }else{
+                btm.append(alpha);
+                alphabet.put(r[2], alpha.toString());
+                alpha.append("1");
+            }
+            
+            btm.append("0");
+            
+            if(r[3]=="L") btm.append("1");
+            else btm.append("11");
+            
+            btm.append("0");
+
+            if(states.contains(r[4])){
+                btm.append(states.get(r[4]));
+            }else{
+                btm.append(state);
+                states.put(r[4], state.toString());
+                state.append("1");
+            }
+
+            btmRules[i++]=btm.toString();
+        }
+        
+        return new BTM(alphabet, btmRules);
+
         
     }
     /**
