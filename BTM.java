@@ -16,7 +16,11 @@ public class BTM {
      * Convert String tape to 0 and 1's
      */
     public String[] convert(String[] tape){
-
+            String[] newTape=new String[tape.length];
+            for(int i =0 ;i<tape.length;i++){
+                newTape[i] = alphabet.get(tape[i]);
+            }
+            return newTape;
     }
 
     //getters

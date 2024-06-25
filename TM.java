@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Arrays;
 
 public class TM {
     private String[] states;
@@ -182,10 +183,10 @@ public class TM {
      */
     public void print() {
         System.out.println("The features of the turing machine are in following lines \n" +
-                "The states : " + this.states.toString() +
+                "The states : " + Arrays.toString(this.states) +
                 "The alphabets : " + this.alphabet.toString() +
                 "The initial and final states are respectively " + this.start + " " + this.end +
-                "The rules : " + this.rules.toString());
+                "The rules : " + Arrays.toString(this.rules));
 
     }
 
