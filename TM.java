@@ -19,7 +19,7 @@ public class TM {
     // Turing machine constructor
     public TM(String[] tm) throws Exception {
         // States pattern and matcher
-        Pattern statePatern = Pattern.compile("q[9-0]+");
+        Pattern statePatern = Pattern.compile("q[0-9]+");
         Matcher matcherStates;
         long count;
         // finding alphabets
@@ -34,6 +34,7 @@ public class TM {
                 alphabet.add(str[2]);
         }
         // start state
+        statePatern = Pattern.compile("q[0-9]+");
         matcherStates = statePatern.matcher(tm[1]);
         count = matcherStates.results().count();
 
@@ -101,12 +102,13 @@ public class TM {
             for (String str : s) {
                 temp += str + " ";
             }
-            this.rules[i] = temp;
+            this.rules[i++] = temp;
 
         }
-        for (int j = 0; j < newStates.length - 1; j++, i++) {
-            this.rules[i] = newStates[j];
-        }
+        if(newStates!=null)
+            for (int j = 0; j < newStates.length - 1; j++, i++) {
+                this.rules[i] = newStates[j];
+            }
 
     }
 
@@ -130,7 +132,7 @@ public class TM {
             String[] r = str.split(" ");
             StringBuilder btm = new StringBuilder("");
 
-            if (states.contains(r[0])) {
+            if (states.containsKey(r[0])) {
                 btm.append(states.get(r[0]));
             } else {
                 btm.append(state);
@@ -138,16 +140,16 @@ public class TM {
                 state.append("1");
             }
             btm.append("0");
-            if (alphabet.contains(r[1])) {
-                btm.append(states.get(r[1]));
+            if (alphabet.containsKey(r[1])) {
+                btm.append(alphabet.get(r[1]));
             } else {
                 btm.append(alpha);
                 alphabet.put(r[1], alpha.toString());
                 alpha.append("1");
             }
             btm.append("0");
-            if (alphabet.contains(r[2])) {
-                btm.append(states.get(r[2]));
+            if (alphabet.containsKey(r[2])) {
+                btm.append(alphabet.get(r[2]));
             } else {
                 btm.append(alpha);
                 alphabet.put(r[2], alpha.toString());
@@ -163,7 +165,7 @@ public class TM {
 
             btm.append("0");
 
-            if (states.contains(r[4])) {
+            if (states.containsKey(r[4])) {
                 btm.append(states.get(r[4]));
             } else {
                 btm.append(state);
@@ -183,16 +185,16 @@ public class TM {
      */
     public void print() {
         System.out.println("The features of the turing machine are in following lines \n" +
-                "The states : " + Arrays.toString(this.states) +
-                "The alphabets : " + this.alphabet.toString() +
-                "The initial and final states are respectively " + this.start + " " + this.end +
+                "The states : " + Arrays.toString(this.states) +"\n" +
+                "The alphabets : " + this.alphabet.toString()+"\n" +
+                "The initial and final states are respectively " + this.start + " and " + this.end + "\n"+
                 "The rules : " + Arrays.toString(this.rules));
 
     }
 
     // returns new final state as last string in array and new production rules
     private String[] singleFinal(String[] finalStates) {
-
+        
     }
 
 }

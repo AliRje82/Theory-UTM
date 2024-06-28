@@ -10,7 +10,7 @@ public class UTM {
 
     public UTM() {
         this.inputs = null;
-        this.state = null;
+        this.state = new String[1];
         this.descriptions = null;
     }
 
@@ -61,6 +61,9 @@ public class UTM {
         System.out.println("The description tape : " + Arrays.toString(this.descriptions) + "\n"
                 + "The inputs tape : " + Arrays.toString(this.inputs) + "\n"
                 + "The state tape " + Arrays.toString(this.state));
+    }
+    public void setInput(String[] input){
+        this.inputs=input;
     }
 
     /**
