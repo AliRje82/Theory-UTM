@@ -22,7 +22,7 @@ public class InputTape {
             }
             this.size = 3 * size;
             inputTape = tape;
-            i += j;
+            i += j+1;
         }
         inputTape[i] = replace;
         return i;
