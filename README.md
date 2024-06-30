@@ -30,16 +30,22 @@ actions:{[transaction rules like (qi,1,x,R,q0)]}
 for exmaple this is a turing machine for adding to number with standard format:
 
 states:{q0,q1,q2,q3}
+
 start_state:{q0}
+
 final_states:{q3}
+
 actions:{(q0,1,blank,R,q1),(q1,1,1,R,q1),(q1,#,1,R,q2),(q2,1,1,L,q2),(q2,blank,blank,R,q3)}
 
 ![Screenshot from 2024-06-30 21-16-53](https://github.com/AliRje82/Theory-UTM/assets/121222311/346685d9-922c-46df-9ea0-6624b9b0e410)
 
 
 states:{q5,q6,q0,q1,q10,q11,q2,q9,q3,q8,q7,q4}
+
 start_state:{q5}
+
 final_states:{q11}
+
 actions:{(q5,1,1,L,q6),(q6,blank,#,R,q0),(q0,1,1,R,q0),(q0,#,#,R,q1),(q1,x,x,R,q1),(q1,1,x,L,q2),(q1,blank,blank,L,q10),(q10,1,1,L,q10),(q10,#,#,L,q10),(q10,x,1,L,q10),(q10,blank,blank,R,q11),(q2,x,x,L,q2),(q2,#,#,L,q3),(q3,y,y,L,q3),(q3,#,#,R,q9),(q3,1,y,L,q4)(q9,y,1,R,q9),(q9,#,#,R,q1),(q4,1,1,L,q4),(q4,#,#,L,q7),(q7,1,1,L,q7),(q7,blank,1,R,q8),(q8,#,#,R,q8),(q8,1,1,R,q8),(q8,y,y,L,q3)}
 
 
