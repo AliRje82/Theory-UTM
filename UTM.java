@@ -14,16 +14,10 @@ public class UTM {
         this.descriptions = null;
     }
 
-    // public UTM(String[] inputs , String[] state , String[] descriptions){
-    // this.inputs = inputs;
-    // this.state = state;
-    // this.descriptions = descriptions;
-    // }
-
     // Run a binary turing machine
-    public void run(BTM turing) {
-        this.descriptions = Arrays.copyOf(turing.getRules(), turing.getRules().length);
-        this.inputs = turing.convert(this.inputs);
+    public void run(BTM turing, String[] in) {
+        this.descriptions = turing.getRules();
+        this.inputs = turing.convert(in);
         InputTape inputs = new InputTape(this.inputs);
         this.state[0] = "1";
         int head = 0;
@@ -34,18 +28,12 @@ public class UTM {
                 break;
             }
             String[] description = this.descriptions[index].split("0");
-            this.state[0] = description[2];
-            head = inputs.replace(head, description[3]);
-            if (description[4].equals("1")) {
+            this.state[0] = description[4];
+            head = inputs.replace(head, description[2]);
+            if (description[3].equals("1")) {
                 head--;
-                if (head < 0) {
-                    head = inputs.replace(head, "1");
-                }
             } else {
                 head++;
-                if (head > inputs.getSize() - 1) {
-                    head = inputs.replace(head, "1");
-                }
             }
         }
         if (state[0].equals("11")) {
@@ -53,7 +41,8 @@ public class UTM {
         } else {
             System.out.println("No transition rule found for the given input and state. HAULT!!!!");
         }
-
+        this.inputs = inputs.getInput();
+        this.print();
     }
 
     // print tapes
@@ -62,8 +51,9 @@ public class UTM {
                 + "The inputs tape : " + Arrays.toString(this.inputs) + "\n"
                 + "The state tape " + Arrays.toString(this.state));
     }
-    public void setInput(String[] input){
-        this.inputs=input;
+
+    public void setInput(String[] input) {
+        this.inputs = input;
     }
 
     /**

@@ -22,20 +22,24 @@ public class InputTape {
             }
             this.size = 3 * size;
             inputTape = tape;
-            i += j+1;
+            i += j;
         }
         inputTape[i] = replace;
         return i;
     }
 
     public String get(int i) {
-        if (i >= size)
+        if (i >= size || i < 0)
             return "1";
         return inputTape[i];
     }
 
     public int getSize() {
         return this.size;
+    }
+
+    public String[] getInput() {
+        return inputTape;
     }
 
     public void print() {

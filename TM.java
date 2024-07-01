@@ -59,8 +59,7 @@ public class TM {
             }
 
             newStates = singleFinal(finalStates);
-            int len = newStates.length;
-            this.end = newStates[len - 1];
+            this.end = newStates[0].split(" ")[4];
 
         } else {
             matcherStates.find();
@@ -83,7 +82,7 @@ public class TM {
         }
         // Adding new final state
         if (i != count)
-            states[i] = newStates[newStates.length - 1];
+            states[i] = newStates[0].split(" ")[4];
 
         // Production rules:
         statePatern = Pattern.compile("[(][^)]*[)]");
@@ -105,7 +104,7 @@ public class TM {
             this.rules[i++] = temp;
 
         }
-        if(newStates!=null)
+        if (newStates != null)
             for (int j = 0; j < newStates.length - 1; j++, i++) {
                 this.rules[i] = newStates[j];
             }
@@ -158,7 +157,7 @@ public class TM {
 
             btm.append("0");
 
-            if (r[3] == "L")
+            if (r[3].equals("L"))
                 btm.append("1");
             else
                 btm.append("11");
@@ -185,16 +184,24 @@ public class TM {
      */
     public void print() {
         System.out.println("The features of the turing machine are in following lines \n" +
-                "The states : " + Arrays.toString(this.states) +"\n" +
-                "The alphabets : " + this.alphabet.toString()+"\n" +
-                "The initial and final states are respectively " + this.start + " and " + this.end + "\n"+
+                "The states : " + Arrays.toString(this.states) + "\n" +
+                "The alphabets : " + this.alphabet.toString() + "\n" +
+                "The initial and final states are respectively " + this.start + " and " + this.end + "\n" +
                 "The rules : " + Arrays.toString(this.rules));
 
     }
 
     // returns new final state as last string in array and new production rules
     private String[] singleFinal(String[] finalStates) {
-        
+        String[] result = new String[finalStates.length];
+        String stateFinal = finalStates[0];
+        for (int i = 1; i < finalStates.length; i++) {
+            for (int j = 0; j < alphabet.size(); j++) {
+                result[i] = finalStates[i] + " " + alphabet.get(j) + " " + alphabet.get(j) + " " + "L" + " "
+                        + stateFinal;
+            }
+        }
+        return result;
     }
 
 }
