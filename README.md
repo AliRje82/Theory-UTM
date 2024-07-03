@@ -45,6 +45,7 @@ actions:{(q0,1,blank,R,q1),(q1,1,1,R,q1),(q1,#,1,R,q2),(q2,1,1,L,q2),(q2,blank,b
 
 ![Screenshot from 2024-06-30 21-16-53](https://github.com/AliRje82/Theory-UTM/assets/121222311/346685d9-922c-46df-9ea0-6624b9b0e410)
 
+Or this is an exmaple of multiplication with standard format:
 
 states:{q5,q6,q0,q1,q10,q11,q2,q9,q3,q8,q7,q4}
 
@@ -109,7 +110,7 @@ It is a simple method to print attributes of class. Nothing fancy!!!!
 
 ![Screenshot 2024-07-04 000213](https://github.com/AliRje82/Theory-UTM/assets/135022735/2d3aff01-9126-4316-9565-96b32acf46eb)
 
-As mentiخned in TM constructor section, if turing machine has more than 1 final state this method is called to convert all these states to one just for the simplification of operation.
+As mentioned in TM constructor section, if turing machine has more than 1 final state this method is called to convert all these states to one just for the simplification of operation.
 
 ## BTM
 ### Class attributes
@@ -118,7 +119,7 @@ As mentiخned in TM constructor section, if turing machine has more than 1 final
 This class contains a Hashtabe to hash input tapes to 1's , and also has a rules String that contains 0 and 1's
 
 ### Constructor
-nothing fancy you can just read it.
+Nothing fancy you can just read it.
 
 ### convert
 
@@ -128,20 +129,31 @@ This method will get a String[] as input and will convert it to 1's based on has
 
 ## Input Tape
 ### Class attributes
-a String array that every string shows a symbol of alphabet ( It has better time complexity that array of char because when you want to put a
-new elemet that length is more or less than last one you should shift elements , but here its not necessery )
+A String array that every string shows a symbol of alphabet (it has better time complexity than array of char because when you want to put a
+new elemet that length is more or less than last one you should shift elements , but here its not necessery)
 ### Replace
 
 ![Replace](https://github.com/AliRje82/Theory-UTM/assets/121222311/9aa56c3a-00a4-4d69-8ec4-dc71c15714cc)
 
-In replace method it will replace element i with another string that is given . it is like when you want write b on tape. 
-if i was out of bound it will make tape bigger by 3 
-for example if tape was blank,x,blank => blank,blank,blank,blank,x,blank,blank,blank,blank 
-this will be done if and only if we want to write somewhere is out of bound.
-also it will return new head because as you see in the example x was in index 1 but after resize it is in position 4
+In replace method it will replace element i with another string that is given. It is like when you want write b on tape. 
+If elemnt i was out of bound it will increase the tape size 3 times. 
+ّor example if tape was blank,x,blank => blank,blank,blank,blank,x,blank,blank,blank,blank 
+This will be done if and only if we want to write somewhere on tape where is out of bound.
+Also it will return new head because as you see in the example x was in index 1 but after resizing it is in position 4.
 
 ## UTM
+### Attributes and constructor
 
+![Screenshot 2024-07-04 001934](https://github.com/AliRje82/Theory-UTM/assets/135022735/4d5efafb-14ff-4764-9359-5fed7168fa15)
+
+For UTM class we need 3 tapes which we discussed before. All attributes initialize with nulll.
+
+### Run
+
+![Screenshot 2024-07-04 002302](https://github.com/AliRje82/Theory-UTM/assets/135022735/8690f46c-aa85-4044-a827-4d37d5b9c00a)
+
+This method get a BTM and its input and start to simulate the turing machine encoded to 1's and 0's. The result will be shown on input tape.
+If there is no transition rule for the state, the UTM will hault. If it haults on final state, a message will be appeared with a acceptence of languaged otherwise the language will be rejected. For this method, we also use findRule method. This method find the appropriate rule for the given input and state among all the transition rules. 
 
 
 
