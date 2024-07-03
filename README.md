@@ -75,40 +75,41 @@ Universal turing machine get the 3 tape mentioned above and start to simulate th
 ### Class attributes
 ![Attr](https://github.com/AliRje82/Theory-UTM/assets/121222311/f28090b8-ac87-4978-899d-250379a57374)
 
-As you can see in the picture it has array of string for rules that save transaction rules with this format : 
-qi a b L/R qj that are seprated with space and i , j is number and a and b are alphabets.
-Also save all states in an array of string .
+As you can see in the picture it has array of string for rules that save transition rules with this format : 
+qi a b L/R qj that are seprated with space.(i and j are number. a and b are alphabets)
+Also save all states in an array of string.
 Save start and end states in string.
-Save the alphabet of machine in a Arraylist.
+Save the alphabets of machine in a Arraylist.
 
 ### TM constructor 
 
 ![Tm](https://github.com/AliRje82/Theory-UTM/assets/121222311/f274ca2e-980d-4843-b351-dde7e5d37a19)
 
 This function uses regex to find information in standard input and also saves them in class attributes.
-if we have more than 1 finish state in our machine it will call a function to make just one final state and return the new rules for Tm.
-it also will rise and exception if machine has more than 1 final state.
+If we have more than 1 final states in our machine it will call a function to convert them all to just one final state and return the new rules for Tm.
+It also will raise an exception if machine has more than 1 initial state.
 
 ### TMtoBTM
 
 ![TMtoBTM](https://github.com/AliRje82/Theory-UTM/assets/121222311/14d1ff36-5ab6-41a6-bb97-5c3205efa4b8)
 
-This method will return a BTM that we will cover next. It will change attrebuits to 0 and 1's.
+This method will return a BTM that we will cover next. It will change attributs to 0 and 1's.
 This method will use attributes in TM to construct a BTM.
-the blank will be 1
-start state will be 1
-and final state will be 11
+The blank will be 1
+Start state will be 1
+Final state will be 11
 L : 1
 R : 11
-the transaction rules will be like this 10101011011.
+The transition rules will be like this 10101011011.
 
 ### Print
-it is a simple method that prints attributes of class nothing fancy.
+It is a simple method to print attributes of class. Nothing fancy!!!!
 
 ### SingeFinal
 
+![Screenshot 2024-07-04 000213](https://github.com/AliRje82/Theory-UTM/assets/135022735/2d3aff01-9126-4316-9565-96b32acf46eb)
 
-
+As mentiخned in TM constructor section, if turing machine has more than 1 final state this method is called to convert all these states to one just for the simplification of operation.
 
 ## BTM
 ### Class attributes
