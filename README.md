@@ -1,33 +1,39 @@
 # About project
 This project is about universal turing machine for theory of languages and machines course in Ferdowsi university of Mashhad.
-this is a document for you to undrestand the code better :).
+Here is a document for you to undrestand the code better :).
 
 ### contributors
 Ali rajaee
 Sania Dolat
 
 # What is Universal turing machine ?
-A UTM is a theoretical model of computation that can simulate the behavior of any other Turing machine , Like a Computer.
+A UTM is a theoretical model of computation that can simulate the behavior of any other Turing machine, like a Computer.
 
 ![UTM](https://github.com/AliRje82/Theory-UTM/assets/121222311/6975ae80-4bfd-4bbf-bafc-a2b163aaaa7d)
 
-As you see in this picture it has three tape one for rules the other for the state that machine is currently in and another tape that is input tape.
-for more details check here: https://en.wikipedia.org/wiki/Universal_Turing_machine
+As you see in picture above, UTM has three tapes which are as follows:
+1.Description tape: Used for the rules the turing machine has.
+2.Input tape: Involve the input of turing machine.
+3.State tape: Show which state the turing machine is currently ar\t.
+For more details check here: https://en.wikipedia.org/wiki/Universal_Turing_machine
 
 # Classes
-There are 4 important classes that is described 
+There are 4 important classes which are as follows:
 
 ### Turing machine (TM)
-This is a simple turing machine,you can construct a turing machine by giving an array of string with Standard format.
+This is a simple turing machine. You can construct a turing machine by giving an array of string with standard format.
 
 #### Standard input format
 Standard format : 
 states:{(States like qn that n represent state number)}
+
 start_state:{[starting state]}
+
 final_states:{[final states]}
+
 actions:{[transaction rules like (qi,1,x,R,q0)]}
 
-for exmaple this is a turing machine for adding to number with standard format:
+For exmaple this is a turing machine for adding 2 numbers with standard format:
 
 states:{q0,q1,q2,q3}
 
@@ -53,20 +59,16 @@ actions:{(q5,1,1,L,q6),(q6,blank,#,R,q0),(q0,1,1,R,q0),(q0,#,#,R,q1),(q1,x,x,R,q
 
 
 ### Binary Turing machine (BTM)
-This turing machine do everythings with 0 and 1's . note that universal turing machine can run only BTM.
+This turing machine do everythings with 0 and 1's. Note that universal turing machine can run only BTM.
 
 BTM will convert everything to 0 and 1.
 we will cover more detail about impelemntions later.
 
 ### InputTape
-As you know a turing machine need infinite tape but we cant allocate such memory in our code so we made a tape that grows if necessary.
+As you know a turing machine need infinite tape. To implement this we made a tape that increased in size if necessary.
 
 ### Universal turing machine
-
-
-
-
-
+Universal turing machine get the 3 tape mentioned above and start to simulate the given arbitrary turing machine. Finally the result is shown on the input tape with the messages like acceptance or rejection of desired languages.
 
 # Implementation details
 ## TM
